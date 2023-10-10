@@ -3,21 +3,22 @@
 		<title>
 			Bingo
 		</title>
-		<script>
-				
-				let randomNumber
-
-				const generatedNumbers = [] 
-
-				function generateRandomNunmber(min, max)  {
-					return Math.floor(Math.random() * (max - min + 1) + min)
-				}
-
-				function generateNumber () {
-					randomNumber = generateRandomNunmber(1, 90)
+		<script>	
+			let randomNumber
+			const generatedNumbers = [] 
+			function generateRandomNunmber(min, max)  {
+				return Math.floor(Math.random() * (max - min + 1) + min)
+			}
+			function generateNumber () {
+				randomNumber = generateRandomNunmber(1, 90)
+				if (randomNumber === generatedNumbers) {
+					return generateNumber
+				} else {
 					generatedNumbers.push(randomNumber)
-					alert(generatedNumbers)
 				}
+			}
+			alert(generatedNumbers)
+			document.getElementbyId('Number').textContent = generatedNumbers
 		</script>
 		<style>
 
@@ -27,4 +28,10 @@
 		<button onclick="generateNumber()">
 			next number
 		</button>
+		<button onclick="
+			generatedNumbers.length = 0
+		">
+			Reset
+		</button>
+		<p Id="Number"></p>
 	</body>

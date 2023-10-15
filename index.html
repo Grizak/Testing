@@ -11,27 +11,23 @@
 			}
 			function generateNumber () {
 				randomNumber = generateRandomNunmber(1, 90)
-				if (randomNumber === generatedNumbers) {
-					return generateNumber
-				} else {
 					generatedNumbers.push(randomNumber)
-				}
 				alert(generatedNumbers)
 			}
 			document.getElementbyId('Number').textContent = generatedNumbers
 		</script>
 		<style>
-
+			
 		</style>
 	</head>
  	<body>
-		<button onclick="generateNumber()">
+		<button onclick="generateNumber()" class="nn">
 			next number
 		</button>
 		<button onclick="
 			generatedNumbers.length = 0
 			alert(generatedNumbers)
-		">
+		" class="reset">
 			Reset
 		</button>
 		<p Id="Number"></p>

@@ -4,17 +4,29 @@
 			Bingo
 		</title>
 		<script>	
+			const generatedNumbers = []
 			let randomNumber
-			const generatedNumbers = [] 
+
 			function generateRandomNunmber(min, max)  {
 				return Math.floor(Math.random() * (max - min + 1) + min)
 			}
+
+
 			function generateNumber () {
-				randomNumber = generateRandomNunmber(1, 90)
-					generatedNumbers.push(randomNumber)
+				let doneGeneratingNewNumber = false
+					while (!doneGeneratingNewNumber) {
+						randomNumber = generateRandomNunmber(1, 90)
+						if (!generatedNumbers.includes(randomNumber)) {
+							generatedNumbers.push(randomNumber)
+							doneGeneratingNewNumber = true
+						}
+					}
 				alert(generatedNumbers)
 			}
-			document.getElementbyId('Number').textContent = generatedNumbers
+
+			window.onload = function() {
+				document.getElementbyId('Number').textContent = generatedNumbers
+			};
 		</script>
 		<style>
 			
@@ -30,5 +42,5 @@
 		" class="reset">
 			Reset
 		</button>
-		<p Id="Number"></p>
+		<p Id="Number" class></p>
 	</body>

@@ -20,37 +20,26 @@
 					}
 				alert(generatedNumbers)
 			}
-
-			function updateTestParagraph() {
-					const random_number = Math.random()
-					document.getElementById('test-id').innerHTML = 'Det nya värdet är ' + random_number
-			}
-
 			window.onload = function() {
 				while(true) {
-					document.getElementbyId('Number').textContent = generatedNumbers
+					document.getElementbyId('Number').innerHTML = generatedNumbers
 				}
-				
 			}
-
+			document.addEventListener('keydown', function(event) {
+				if(event.keyCode == 13)  {
+					generateNumber()
+				}
+			})
+			document.addEventListener('keydown', function(event){
+				if(event.keyCode == 82){
+					generatedNumbers.length = 0
+				}
+			});
 		</script>
 		<style>
 			
 		</style>
 	</head>
  	<body>
-		<button onclick="generateNumber()" class="nn">
-			next number
-		</button>
-		<button onclick="
-			generatedNumbers.length = 0
-			alert(generatedNumbers)
-		" class="reset">
-			Reset
-		</button>
-		<button onclick="updateTestParagraph()">
-			Update
-		</button>
 		<p Id="Number" class="number"></p>
-		<p id="test-id">Helllo</p>
 	</body>

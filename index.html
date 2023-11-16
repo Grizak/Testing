@@ -3,32 +3,44 @@
 		<title>
 			Bingo
 		</title>
-		<script>	
+		<script>
+			const generatedNumbers = []
 			let randomNumber
-			const generatedNumbers = [] 
 			function generateRandomNunmber(min, max)  {
 				return Math.floor(Math.random() * (max - min + 1) + min)
 			}
 			function generateNumber () {
-				randomNumber = generateRandomNunmber(1, 90)
-					generatedNumbers.push(randomNumber)
+				let doneGeneratingNewNumber = false
+					while (!doneGeneratingNewNumber) {
+						randomNumber = generateRandomNunmber(1, 90)
+						if (!generatedNumbers.includes(randomNumber)) {
+							generatedNumbers.push(randomNumber)
+							doneGeneratingNewNumber = true
+						}
+					}
 				alert(generatedNumbers)
 			}
-			document.getElementbyId('Number').textContent = generatedNumbers
+			window.onload = function() {
+				while(true) {
+					document.getElementbyId('Number').innerHTML = generatedNumbers
+				}
+			}
+			document.addEventListener('keydown', function(event) {
+				if(event.keyCode == 13)  {
+					generateNumber()
+				}
+			})
+			document.addEventListener('keydown', function(event){
+				if(event.keyCode == 82){
+					generatedNumbers.length = 0
+					alert(generatedNumbers)
+				}
+			});
 		</script>
 		<style>
 			
 		</style>
 	</head>
  	<body>
-		<button onclick="generateNumber()" class="nn">
-			next number
-		</button>
-		<button onclick="
-			generatedNumbers.length = 0
-			alert(generatedNumbers)
-		" class="reset">
-			Reset
-		</button>
-		<p Id="Number"></p>
+		<p Id="Number" class="number"></p>
 	</body>

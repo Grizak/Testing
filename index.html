@@ -20,9 +20,10 @@
 					}
 				alert(generatedNumbers)
 			}
+			generatedNumbers = document.getElementById('Number')
 			window.onload = function() {
 				while(true) {
-					document.getElementbyId('Number').innerHTML = generatedNumbers
+					generatedNumbers.innerHTML = generatedNumbers
 				}
 			}
 			document.addEventListener('keydown', function(event) {
@@ -42,5 +43,5 @@
 		</style>
 	</head>
  	<body>
-		<p Id="Number" class="number"></p>
+		<div Id="Number" class="number"></div>
 	</body>

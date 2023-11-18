@@ -18,14 +18,16 @@
 							doneGeneratingNewNumber = true
 						}
 					}
+					
 				alert(generatedNumbers)
 			}
-			generatedNumbers = document.getElementById('Number')
+			generatedNumbers = 
 			window.onload = function() {
 				while(true) {
-					generatedNumbers.innerHTML = generatedNumbers
+					document.getElementById('Number').innerHTML = generatednumbers
 				}
 			}
+			
 			document.addEventListener('keydown', function(event) {
 				if(event.keyCode == 13)  {
 					generateNumber()
@@ -37,6 +39,7 @@
 					alert(generatedNumbers)
 				}
 			});
+			
 		</script>
 		<style>
 			

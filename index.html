@@ -19,13 +19,9 @@
 						}
 					}
 				alert(generatedNumbers)
+				document.getElementById('Number').textContent = generatedNumbers
 			}
-			generatedNumbers = document.getElementById('Number')
-			window.onload = function() {
-				while(true) {
-					generatedNumbers.innerHTML = generatedNumbers
-				}
-			}
+					
 			document.addEventListener('keydown', function(event) {
 				if(event.keyCode == 13)  {
 					generateNumber()

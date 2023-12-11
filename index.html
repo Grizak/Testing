@@ -1,44 +1,48 @@
-<DOCTYPE! html>
-	<head>
-		<title>
-			Bingo
-		</title>
-		<script>
-			const generatedNumbers = []
-			let randomNumber
-			function generateRandomNunmber(min, max)  {
-				return Math.floor(Math.random() * (max - min + 1) + min)
-			}
-			function generateNumber () {
-				let doneGeneratingNewNumber = false
-					while (!doneGeneratingNewNumber) {
-						randomNumber = generateRandomNunmber(1, 90)
-						if (!generatedNumbers.includes(randomNumber)) {
-							generatedNumbers.push(randomNumber)
-							doneGeneratingNewNumber = true
-						}
-					}
-					
-				alert(generatedNumbers)
-				document.getElementById('Number').textContent = generatedNumbers
-			}
-			document.addEventListener('keydown', function(event) {
-				if(event.keyCode == 13)  {
-					generateNumber()
-				}
-			})
-			document.addEventListener('keydown', function(event){
-				if(event.keyCode == 82){
-					generatedNumbers.length = 0
-					alert(generatedNumbers)
-				}
-			});
-			
-		</script>
-		<style>
-			
-		</style>
-	</head>
- 	<body>
-		<div Id="Number" class="number"></div>
-	</body>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bingo</title>
+    <script>
+        const generatedNumbers = [];
+        let randomNumber;
+
+        function generateRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        function generateNumber() {
+            let doneGeneratingNewNumber = false;
+            while (!doneGeneratingNewNumber) {
+                randomNumber = generateRandomNumber(1, 90);
+                if (!generatedNumbers.includes(randomNumber)) {
+                    generatedNumbers.push(randomNumber);
+                    doneGeneratingNewNumber = true;
+                }
+            }
+
+            alert(generatedNumbers);
+            document.getElementById('Number').textContent = generatedNumbers.join(', ');
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.keyCode == 13) {
+                generateNumber();
+            }
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.keyCode == 82) {
+                generatedNumbers.length = 0;
+                document.getElementById('Number').textContent = '';
+                alert('Numbers cleared!');
+            }
+        });
+    </script>
+    <style>
+        /* You can add CSS styles here if needed */
+    </style>
+</head>
+<body>
+    <div id="Number" class="number"></div>
+</body>
+</html>

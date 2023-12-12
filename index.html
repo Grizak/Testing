@@ -11,6 +11,11 @@
         }
 
         function generateNumber() {
+            if (generatedNumbers.length === 90) {
+                alert('All numbers have been generated!');
+                return;
+            }
+
             let doneGeneratingNewNumber = false;
             while (!doneGeneratingNewNumber) {
                 randomNumber = generateRandomNumber(1, 90);
@@ -19,7 +24,13 @@
                     doneGeneratingNewNumber = true;
                 }
             }
+
+            alert(generatedNumbers);
             document.getElementById('Number').textContent = generatedNumbers.join(', ');
+
+            if (generatedNumbers.length === 90) {
+                alert('All numbers have been generated!');
+            }
         }
 
         document.addEventListener('keydown', function(event) {
@@ -27,15 +38,17 @@
                 generateNumber();
             }
         });
+
         document.addEventListener('keydown', function(event) {
             if (event.keyCode == 82) {
                 generatedNumbers.length = 0;
                 document.getElementById('Number').textContent = '';
+                alert('Numbers cleared!');
             }
         });
     </script>
     <style>
-      
+        /* You can add CSS styles here if needed */
     </style>
 </head>
 <body>

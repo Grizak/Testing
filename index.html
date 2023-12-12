@@ -19,8 +19,6 @@
                     doneGeneratingNewNumber = true;
                 }
             }
-
-            alert(generatedNumbers);
             document.getElementById('Number').textContent = generatedNumbers.join(', ');
         }
 
@@ -29,7 +27,6 @@
                 generateNumber();
             }
         });
-
         document.addEventListener('keydown', function(event) {
             if (event.keyCode == 82) {
                 generatedNumbers.length = 0;

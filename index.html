@@ -27,7 +27,6 @@
                 }
             }
 
-            alert(generatedNumbers);
             document.getElementById('Number').textContent = generatedNumbers.join(', ');
 
             if (generatedNumbers.length === (maxNumber - minNumber + 1)) {
@@ -58,7 +57,6 @@
             if (event.keyCode === 82) {
                 generatedNumbers = [];
                 document.getElementById('Number').textContent = '';
-                alert('Numbers cleared!');
             }
         });
         document.addEventListener('keydown', function(event) {

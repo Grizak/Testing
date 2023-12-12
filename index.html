@@ -11,11 +11,6 @@
         }
 
         function generateNumber() {
-            if (generatedNumbers.length === 90) {
-                alert('All numbers have been generated!');
-                return;
-            }
-
             let doneGeneratingNewNumber = false;
             while (!doneGeneratingNewNumber) {
                 randomNumber = generateRandomNumber(1, 90);
@@ -27,10 +22,6 @@
 
             alert(generatedNumbers);
             document.getElementById('Number').textContent = generatedNumbers.join(', ');
-
-            if (generatedNumbers.length === 90) {
-                alert('All numbers have been generated!');
-            }
         }
 
         document.addEventListener('keydown', function(event) {

@@ -3,17 +3,24 @@
 <head>
     <title>Bingo</title>
     <script>
-        const generatedNumbers = [];
+        let generatedNumbers = [];
         let randomNumber;
+        let minNumber;
+        let maxNumber;
 
         function generateRandomNumber(min, max) {
             return Math.floor(Math.random() * (max - min + 1) + min);
         }
 
         function generateNumber() {
+            if (generatedNumbers.length === (maxNumber - minNumber + 1)) {
+                alert('All numbers within the range have been generated!');
+                return;
+            }
+
             let doneGeneratingNewNumber = false;
             while (!doneGeneratingNewNumber) {
-                randomNumber = generateRandomNumber(1, 90);
+                randomNumber = generateRandomNumber(minNumber, maxNumber);
                 if (!generatedNumbers.includes(randomNumber)) {
                     generatedNumbers.push(randomNumber);
                     doneGeneratingNewNumber = true;
@@ -22,24 +29,43 @@
 
             alert(generatedNumbers);
             document.getElementById('Number').textContent = generatedNumbers.join(', ');
+
+            if (generatedNumbers.length === (maxNumber - minNumber + 1)) {
+                alert('All numbers within the range have been generated!');
+            }
+        }
+
+        function setRange() {
+            minNumber = parseInt(prompt('Enter the minimum number:'));
+            maxNumber = parseInt(prompt('Enter the maximum number:'));
+
+            if (isNaN(minNumber) || isNaN(maxNumber) || minNumber >= maxNumber) {
+                alert('Invalid range! Please enter valid numbers.');
+                setRange();
+            } else {
+                generatedNumbers = [];
+                document.getElementById('Number').textContent = '';
+            }
         }
 
         document.addEventListener('keydown', function(event) {
-            if (event.keyCode == 13) {
+            if (event.keyCode === 13) {
                 generateNumber();
             }
         });
 
         document.addEventListener('keydown', function(event) {
-            if (event.keyCode == 82) {
-                generatedNumbers.length = 0;
+            if (event.keyCode === 82) {
+                generatedNumbers = [];
                 document.getElementById('Number').textContent = '';
                 alert('Numbers cleared!');
             }
         });
+
+        window.onload = setRange; // Set range on page load
     </script>
     <style>
-        /* You can add CSS styles here if needed */
+        
     </style>
 </head>
 <body>

@@ -35,7 +35,7 @@
 								document.getElementById('Number').textContent = '';
             }
         }
-	
+
         function setRange() {
             minNumber = parseInt(prompt('Enter the minimum number:'));
             maxNumber = parseInt(prompt('Enter the maximum number:'));
@@ -67,7 +67,7 @@
             }
         });
 
-        window.onload = setRange; // Set range on page load
+        window.onload = setRange;
     </script>
     <style>
         
@@ -75,11 +75,5 @@
 </head>
 <body>
     <div id="Number" class="number"></div>
-    <button onclick="generateNumber()">new number</button>
-    <button onclick="
-        generatedNumbers = [] 
-        document.getElementById('number').textContent = ''
-        ">reset</button>
-    <button onclick="setRange()">set range</button>
 </body>
 </html>

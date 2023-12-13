@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Resizer</title>
+    <style>
+        #myDiv {
+            font-size: 20px; /* Initial font size */
+        }
+    </style>
+    <script>
+        function increaseTextSize() {
+            var myDiv = document.getElementById('myDiv');
+            var currentSize = window.getComputedStyle(myDiv).getPropertyValue('font-size');
+            var newSize = parseInt(currentSize) + 5; // Increase font size by 5 pixels
+
+            myDiv.style.fontSize = newSize + 'px';
+        }
+    </script>
+</head>
+<body>
+    <div id="myDiv">This is some text inside the div.</div>
+    <button onclick="increaseTextSize()">Increase Text Size</button>
+</body>
+</html>

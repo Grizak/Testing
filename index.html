@@ -15,6 +15,7 @@
         function generateNumber() {
             if (generatedNumbers.length === (maxNumber - minNumber + 1)) {
                 alert('All numbers within the range have been generated!');
+								document.getElementById('number').textContent = '';
                 return;
             }
 
@@ -29,13 +30,8 @@
 
             document.getElementById('Number').textContent = generatedNumbers.join(', ');
 
-                if (generatedNumbers.length === (maxNumber - minNumber + 1)) {
-                alert('All numbers within the range have been generated!');
-								generatedNumbers = []
-								document.getElementById('Number').textContent = '';
             }
-        }
-	
+
         function setRange() {
             minNumber = parseInt(prompt('Enter the minimum number:'));
             maxNumber = parseInt(prompt('Enter the maximum number:'));
@@ -68,10 +64,12 @@
         });
 
         window.onload = setRange;
-	  	</script>
-   	  <style>
-         
-      </style>
+    </script>
+    <style>
+	.number {
+		font-size: 150%;
+	}
+    </style>
 </head>
 <body>
     <div id="Number" class="number"></div>

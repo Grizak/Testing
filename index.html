@@ -34,11 +34,11 @@
             }
 
         function setRange() {
-            minNumber = parseInt(prompt('Enter the minimum number:'));
-						if (isNaN(minNumber)) {
-							alert('That Is not a number')
-							setRange()
-							return
+						while (!isNaN(minNumber)){
+		            minNumber = parseInt(prompt('Enter the minimum number:'));
+								if (isNaN(minNumber)) {
+									alert('That Is not a number')
+								}
 						}
             maxNumber = parseInt(prompt('Enter the maximum number:'));
 

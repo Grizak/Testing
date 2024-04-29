@@ -35,6 +35,9 @@
 
         function setRange() {
             minNumber = parseInt(prompt('Enter the minimum number:'));
+						if (isNaN(minNumber)) {
+							setRange()
+						}
             maxNumber = parseInt(prompt('Enter the maximum number:'));
 
             if (isNaN(minNumber) || isNaN(maxNumber) || minNumber >= maxNumber) {
